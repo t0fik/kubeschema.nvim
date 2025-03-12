@@ -121,7 +121,7 @@ local get_kube_schema_settings = function(client, bufnr, config)
         return client.config.settings.yaml.schemas or {}
       end,
       helm_ls = function()
-        return client.config.settings.yamlls.config.schemas or {}
+        return client.config.settings['helm-ls'].yamlls.config.schemas or {}
       end,
     }
     local save_schemas = {
@@ -129,7 +129,7 @@ local get_kube_schema_settings = function(client, bufnr, config)
         client.config.settings.yaml.schemas = schemas
       end,
       helm_ls = function(schemas)
-        client.config.settings.yamlls.config.schemas = schemas
+        client.config.settings['helm-ls'].yamlls.config.schemas = schemas
       end,
     }
     if vim.uv.fs_stat(schema_file) then
